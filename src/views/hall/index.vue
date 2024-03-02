@@ -214,23 +214,13 @@ import {  ref } from 'vue';
 import bannerSrc from '@/assets/banner.jpg';
 import igIcon from '@/assets/ig-icon.png';
 import fbIcon from '@/assets/fb-icon.png';
-
-
 import starIcon from '@/assets/star-icon.png';
 
-
 let showselectBox = ref(false);
-
-
 
 const openSelectBox = () => {
     showselectBox.value=!showselectBox.value;
 };
-
-
-
-
-
 
 </script>
   
@@ -239,6 +229,7 @@ const openSelectBox = () => {
     .banner {
         width: 100%;
         height: 600px;
+        margin-top: 10px;
 
         img {
             max-width: 100%;

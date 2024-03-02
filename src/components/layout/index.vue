@@ -1,6 +1,7 @@
 
 <template>
   <div id="layout">
+    <el-affix :offset="0">
     <header>
       <div class="first-layer">
         <div class="left-header">
@@ -38,12 +39,27 @@
         </div>
 
       </div>
-
-
     </header>
-    <div class="content">
+  </el-affix>
+
+    <div>
       <router-view></router-view>
     </div>
+    <footer>
+      <ul>
+        <li><img :src="footerIcon" class="footer-icon"  alt=""></li>
+        <li>提供電子商貿服務</li>
+        <li>我們的</li>
+        <li>服務條款</li>
+        <li>及</li>
+        <li>私隠條例</li>
+        <li>|</li>
+        <li>商舖</li>
+        <li>退貨及退款政策 </li>
+        <li>|</li>
+        <li>提出意見</li>
+      </ul>
+    </footer>
   </div>
 </template>
   
@@ -51,13 +67,13 @@
 import imageSrc from '@/assets/coin_icon.jpg';
 import cartIcon from '@/assets/icon-cart.png';
 import shareIcon from '@/assets/share.png';
-
-
+import footerIcon from '@/assets/footer-icon.png';
 
 </script>
 
 <style lang="scss" scoped>
 #layout {
+
   width: 70%;
   height: 100%;
   margin: 0 auto;
@@ -69,7 +85,8 @@ import shareIcon from '@/assets/share.png';
 
   header {
     width: 100%;
-    height: 150px;
+    height: 120px;
+    background: #fff;
 
     .first-layer {
       width: 100%;
@@ -204,5 +221,24 @@ import shareIcon from '@/assets/share.png';
 
   }
 
-}</style>
+  footer{
+    border-top: 1px solid #E6E6E6;
+    width: 100%;
+    height: 35px;
+    padding-left: 400px;
+    ul{
+      height: 100%;
+      width: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      .footer-icon{
+        max-width: 50px;
+      }
+    }
+  }
+
+}
+</style>
   
