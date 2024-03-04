@@ -50,12 +50,12 @@
         <li><img :src="footerIcon" class="footer-icon"  alt=""></li>
         <li>提供電子商貿服務</li>
         <li>我們的</li>
-        <li>服務條款</li>
+        <li class="link">服務條款</li>
         <li>及</li>
-        <li>私隠條例</li>
+        <li class="link">私隠條例</li>
         <li>|</li>
         <li>商舖</li>
-        <li>退貨及退款政策 </li>
+        <li class="link">退貨及退款政策 </li>
         <li>|</li>
         <li>提出意見</li>
       </ul>
@@ -226,6 +226,7 @@ import footerIcon from '@/assets/footer-icon.png';
     width: 100%;
     height: 35px;
     padding-left: 400px;
+
     ul{
       height: 100%;
       width: 550px;
@@ -233,6 +234,10 @@ import footerIcon from '@/assets/footer-icon.png';
       align-items: center;
       justify-content: space-between;
       font-size: 12px;
+      .link{
+        cursor: pointer;
+        border-bottom:1px #000 solid
+      }
       .footer-icon{
         max-width: 50px;
       }
