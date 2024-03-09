@@ -7,7 +7,7 @@
                 </div>
                 <div class="second-layer">
                     <div class="carousel-area">
-                        <el-carousel :autoplay="false" height="550px" ref="coinCarousel"  @change="handleCarouselChange">
+                        <el-carousel :autoplay="false" height="550px" ref="coinCarousel" @change="handleCarouselChange">
                             <el-carousel-item v-for="(img, index) in images" :key="index">
                                 <img :src="img.url" alt="">
                             </el-carousel-item>
@@ -33,16 +33,45 @@
                 <a class="buy-button">購買</a>
                 <div class="content-area">
                     <div class="title-area">
-                        <span id="t1" @click="addContentTitleBottomLine('t1')" :style="{ borderBottom: TitleBottomLine === 't1' ? '2px solid #AFAFAF' : '' }">簡介</span>
-                        <span id="t2" @click="addContentTitleBottomLine('t2')" :style="{ borderBottom: TitleBottomLine === 't2' ? '2px solid #AFAFAF' : '' }">付款、送貨及退貨</span>
+                        <span id="t1" @click="addContentTitleBottomLine('t1')"
+                            :style="{ borderBottom: TitleBottomLine === 't1' ? '2px solid #AFAFAF' : '' }">簡介</span>
+                        <span id="t2" @click="addContentTitleBottomLine('t2')"
+                            :style="{ borderBottom: TitleBottomLine === 't2' ? '2px solid #AFAFAF' : '' }">付款、送貨及退貨</span>
                     </div>
                     <div class="t1-box" :style="{ display: TitleBottomLine === 't1' ? 'block' : 'none' }">
                         <span>公博評級 美82 厚重</span>
                     </div>
-                    <div class="t2-box" :style="{ display: TitleBottomLine === 't2' ? 'block' : 'none' }"></div>
-                
-                
-                
+                    <div class="t2-box" :style="{ display: TitleBottomLine === 't2' ? 'block' : 'none' }">
+
+                        <div class="c1">
+                            <span>送貨方式</span>
+                            <ul>
+                                <li>本地送貨</li>
+                                <li>本地取貨</li>
+                                <li>國際送貨</li>
+                            </ul>
+                        </div>
+                        <div class="c2">
+                            <span>付款方式</span>
+                            <ul>
+                                <li>以 信用卡 付款</li>
+                                <li>以 信用卡 / PayPal Wallet 付款</li>
+                                <li>銀行轉帳</li>
+                            </ul>
+                        </div>
+                        <div class="c3">
+                            <span>退貨及退款政策</span>
+                            <p>本店售出商品一律包老,包真,包入盒,裸幣60天內不入盒包退(請保持原狀，没有清洗下)，本店將負責來回運費，請放心選購！</p>
+
+                            <p>*古泉以公博/華夏/中乾/保粹/古泉園地/眾誠/通寶等評級公司鑑定結果為準,機鑄幣則以PCGS/NGC/公博等鑑定結果為準，評級幣售出不退*</p>
+                        </div>
+
+
+
+                    </div>
+
+
+
                 </div>
                 <div class="commemt-area"></div>
             </div>
@@ -57,10 +86,10 @@
 import { ref } from 'vue';
 import { ElCarousel } from 'element-plus';
 
-const TitleBottomLine =ref('t1');
+const TitleBottomLine = ref('t1');
 const num = ref(1)
 const handleChange = (value: number) => {
-  console.log(value)
+    console.log(value)
 }
 
 const coinCarousel = ref<InstanceType<typeof ElCarousel> | null>(null);
@@ -94,8 +123,8 @@ const handleCarouselChange = (index: any) => {
 };
 
 
-const addContentTitleBottomLine =(id:string)=>{
-    TitleBottomLine.value=id;
+const addContentTitleBottomLine = (id: string) => {
+    TitleBottomLine.value = id;
 }
 
 
@@ -131,6 +160,7 @@ const addContentTitleBottomLine =(id:string)=>{
                 .carousel-area {
                     padding: 10px 10px 0 30px;
                     width: 90%;
+
                     img {
                         max-width: 100%;
                     }
@@ -157,15 +187,18 @@ const addContentTitleBottomLine =(id:string)=>{
         .right-area {
             padding-top: 40px;
             width: 50%;
-            height: 100%;    
-            .price-area{
+            height: 100%;
+
+            .price-area {
                 margin-top: 15px;
-                span{
+
+                span {
                     color: #999999;
                     font-size: 20px;
                 }
-            } 
-            .num-font{
+            }
+
+            .num-font {
                 display: block;
                 margin-top: 30px;
                 font-size: 14px;
@@ -173,20 +206,21 @@ const addContentTitleBottomLine =(id:string)=>{
                 color: #555555;
             }
 
-            .num-area{
+            .num-area {
                 margin-top: 10px;
                 width: 200px;
                 height: 40px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                span{
+
+                span {
                     color: #8C8C8C;
                     font-size: 13px;
                 }
             }
 
-            .buy-button{
+            .buy-button {
                 margin-top: 15px;
                 text-align: center;
                 display: block;
@@ -220,10 +254,12 @@ const addContentTitleBottomLine =(id:string)=>{
                         text-align: center;
                         line-height: 50px;
                         cursor: pointer;
+                        font-weight: 500;
 
                     }
 
                 }
+
                 //AFAFAF
 
                 .t1-box {
@@ -243,14 +279,85 @@ const addContentTitleBottomLine =(id:string)=>{
                     height: 500px;
                     color: #555555;
                     font-weight: 500;
+
+                    padding: 10px;
+
+                    .c1 {
+                        width: 100%;
+                        height: 150px;
+                        font-size: 15px;
+                        border-bottom: 1px solid #EEEEEE;
+                        padding: 10px;
+
+
+
+                        ul li::before {
+                                content: '•';
+                                /* 使用黑色實心圓點 */
+                                color: black;
+                                /* 設置顏色為黑色 */
+                                display: inline-block;
+                                width: 1em;
+                                /* 為圓點和文本設置間距 */
+                                margin-left: -1em;
+                                /* 對齊列表項 */
+                            }
+
+                        ul {
+                            list-style-type: none;
+                            /* 移除預設標記 */
+                            padding-left: 0;                           
+                            li {
+                                padding: 5px 25px;
+                            }
+                        }
+                    }
+
+                    .c2 {
+                        width: 100%;
+                        height: 150px;
+                        font-size: 15px;
+                        border-bottom: 1px solid #EEEEEE;
+                        padding: 10px;
+
+                        ul li::before {
+                                content: '•';
+                                /* 使用黑色實心圓點 */
+                                color: black;
+                                /* 設置顏色為黑色 */
+                                display: inline-block;
+                                width: 1em;
+                                /* 為圓點和文本設置間距 */
+                                margin-left: -1em;
+                                /* 對齊列表項 */
+                            }
+
+                        ul {
+                            list-style-type: none;
+                            /* 移除預設標記 */
+                            padding-left: 0;                           
+                            li {
+                                padding: 5px 25px;
+                            }
+                        }
+                    }
+
+                    .c3 {
+                        width: 100%;
+                        height: 180px;
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
                 }
 
 
             }
 
-           
-            
-            
+
+
+
         }
     }
 
